@@ -15,6 +15,7 @@ namespace DT102G___Laboration_2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(); // Möjliggör användandet av MVC-relaterad funktionallitet.
+            services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -25,8 +26,8 @@ namespace DT102G___Laboration_2
             }
 
             app.UseRouting();
-
             app.UseStaticFiles(); // Möjliggör statiska CSS- och JS-filer.
+            app.UseSession(); // Möjliggör sessionsvariabler.
 
             // Sätt standardrouting till Index-sidan i Form-kontrollen
             app.UseEndpoints(endpoints =>
