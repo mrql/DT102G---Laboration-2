@@ -1,0 +1,92 @@
+﻿@model DT102G___Laboration_2.Models.Form
+
+@{
+    ViewData["Title"] = "Svarsformulär";
+}
+
+<partial name="../Shared/_formAbout.cshtml" />
+
+<form asp-action="Questionaire" method="post">
+    <!-- Ålder -->
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <span asp-validation-for="Age"></span>
+        <input asp-for="Age" min="0" />
+    </div>
+    <!-- Kön -->
+    <div class="form-group">
+        <fieldset>
+            <legend>Kön</legend>
+            <span asp-validation-for="Gender"></span>
+            <div class="form-check">
+                <label>Man</label>
+                <input asp-for="Gender" type="radio" value="Man" id="Man">
+            </div>
+            <div class="form-check">
+                <label>Kvinna</label>
+                <input asp-for="Gender" type="radio" value="Kvinna" id="Kvinna">
+            </div>
+            <div class="form-check">
+                <label>Annat</label>
+                <input asp-for="Gender" type="radio" value="Annat" id="Annat">
+            </div>
+        </fieldset>
+    </div>
+    <!-- Fråga 1 -->
+    <div class="form-group">
+        <label asp-for="Question1" class="control-label"></label>
+        <span asp-validation-for="Question1"></span>
+        <blockquote>
+            Robotfilter är diskriminerande.
+        </blockquote>
+        <select asp-for="Question1" class="form-control">
+            <option disabled selected> - Välj ett alternativ - </option>
+            <option value="Instämmer">Instämmer</option>
+            <option value="Instämmer delvis">Instämmer delvis</option>
+            <option value="Instämmer inte">Instämmer inte</option>
+            <option value="Vet ej">Vet ej</option>
+        </select>
+    </div>
+    <!-- Fråga 2 -->
+    <div class="form-group">
+        <label asp-for="Question2" class="control-label"></label>
+        <span asp-validation-for="Question2"></span>
+        <blockquote>
+            Robotar är också människor.
+        </blockquote>
+        <select asp-for="Question2" class="form-control">
+            <option disabled selected> - Välj ett alternativ - </option>
+            <option value="Instämmer">Instämmer</option>
+            <option value="Instämmer delvis">Instämmer delvis</option>
+            <option value="Instämmer inte">Instämmer inte</option>
+            <option value="Vet ej">Vet ej</option>
+        </select>
+    </div>
+    <!-- Fråga 3 -->
+    <div class="form-group">
+        <label asp-for="Question3" class="control-label"></label>
+        <span asp-validation-for="Question3"></span>
+        <blockquote>
+            Ibland känner jag mig som en robot.
+        </blockquote>
+        <select asp-for="Question3" class="form-control">
+            <option disabled selected> - Välj ett alternativ - </option>
+            <option value="Instämmer">Instämmer</option>
+            <option value="Instämmer delvis">Instämmer delvis</option>
+            <option value="Instämmer inte">Instämmer inte</option>
+            <option value="Vet ej">Vet ej</option>
+        </select>
+    </div>
+    <!-- Meddelande -->
+    <div class="form-group">
+        <label asp-for="Message" class="control-label"></label>
+        <span asp-validation-for="Message"></span>
+        <textarea asp-for="Message" cols="50" rows="6"></textarea>
+    </div>
+    <!-- Skicka -->
+    <div class="form-group">
+        <input type="submit" value="Slutför" class="btn btn-default" />
+    </div>
+</form>
+
+<partial name="../Shared/_formDisclaimer.cshtml" />
