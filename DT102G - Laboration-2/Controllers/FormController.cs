@@ -8,22 +8,21 @@ namespace DT102G___Laboration_2.Controllers
 {
     public class FormController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
                 return View();
         }
 
-        [HttpGet]
+        [HttpGet("/Formulär")]
         public IActionResult Questionaire()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("/Formulär")]
         public IActionResult Questionaire(Form form)
         {
-            // Skicka till resultatsidan om alla formulärsfälten validerar korrekt.. 
+            // Skicka till resultatsidan om alla formulärsfälten validerar korrekt.
             if(ModelState.IsValid)
             {
                 // Konvertera formulärsobjekt till JSON-sträng.
@@ -40,6 +39,7 @@ namespace DT102G___Laboration_2.Controllers
             }
         }
 
+        [Route("/Resultat")]
         public IActionResult Result()
         {
             string jStr = HttpContext.Session.GetString("FormSession");

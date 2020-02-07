@@ -29,7 +29,7 @@ namespace DT102G___Laboration_2
             app.UseStaticFiles(); // Möjliggör statiska CSS- och JS-filer.
             app.UseSession(); // Möjliggör sessionsvariabler.
 
-            // Sätt standardrouting till Index-sidan i Form-kontrollen
+            // Sätt standardrouting till Index-sidan i Form-kontrolleraren.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
